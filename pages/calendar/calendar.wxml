@@ -1,0 +1,73 @@
+<!--pages/calendar/calendar.wxml-->
+<view class="flex box box-tb box-align-center">
+  <view class="calendar pink-color box box-tb">
+        <view class="top-handle fs28 box box-lr box-align-center box-pack-center">
+            <view class="prev box box-rl" bindtap="handleCalendar" data-handle="prev">
+                <view class="prev-handle box box-lr box-align-center box-pack-center">《</view>
+            </view>
+            <view class="date-area box box-lr box-align-center box-pack-center">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+            <view class="next box box-lr" bindtap="handleCalendar" data-handle="next">
+                <view class="next-handle box box-lr box-align-center box-pack-center">》</view>
+            </view>
+            <view class="today box box-lr {{today == true || (curYear == cur_year && curMonth == cur_month) ? 'none' : ''}}" bindtap="handletoday">今</view>
+        </view>
+        <view class="weeks box box-lr box-pack-center box-align-center">
+            <view class="flex week fs28" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+        </view>
+        <view class="box box-lr box-wrap">
+            <view wx:if="{{hasEmptyGrid}}" class="grid white-color box box-align-center box-pack-center" wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}">
+            </view>
+            <view class="grid white-color box box-align-center box-pack-center" wx:for="{{days}}" wx:key="{{index}}" data-idx="{{index}}">
+              <!-- <view class="day {{index >= 5 && index <= 13 ? 'border-radius pink-bg' : ''}} box box-align-center box-pack-center">{{item}}</view>  -->
+              <view class="day" data-year="{{cur_year}}" data-month="{{cur_month}}" data-day="{{index+1}}" bindtap="handleday">
+                <view class="box box-align-center box-pack-center {{curYear == cur_year && curMonth == cur_month && curDay == index+1 ? 'purple-bg' : '' }} {{num == index+1 ? 'pink-bg' : ''}}" data-num="{{index+1}}">{{item}}</view> 
+                <view wx:for="{{daylongYM}}" wx:for-item="daylongYMItem" wx:for-index="idx" wx:key="id">
+                 <block wx:if="{{daylongYMItem.daynum == index+1}}">
+                  <block wx:if="{{daylongYMItem.status == 1}}">
+                    <text class="dot sure-dot"></text>
+                  </block>
+                  <block wx:elif="{{daylongYMItem.status == 2}}">
+                      <text class="dot nums-dot"></text>
+                  </block>
+                  <block wx:else>
+                      <text class="dot overdue-dot"></text>
+                  </block>
+                 </block>
+                </view>
+              </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="calendar-note">
+    <text class="note"><text class="overdue-dot dot"></text>已过期</text>
+    <text class="note"><text class="nums-dot dot"></text>人数已满</text>
+    <text class="note"><text class="sure-dot dot"></text>可预约</text>
+</view>
+ <view class="calendar-box {{showList == true ? '' : 'none'}}" wx:for="{{daylong}}" wx:for-item="daylongItem" wx:for-index="idx" wx:key="id">
+    <view class="calendar-list">
+      <view class="calendar-item"><text class="title">预约日期</text>{{daylongtime}}</view>
+      <view class="calendar-item"><text class="title">预约地点</text>{{daylongItem.address}}</view>
+      <view class="calendar-item"><text class="title">预约时间</text>{{daylongItem.startTime}}-{{daylongItem.endTime}}</view>
+      <view class="calendar-item"><text class="title">报名人数</text>{{daylongItem.hasJoinNumber}}</view>
+      <view class="calendar-item"><text class="title">参加人数</text>{{daylongItem.joinNumber}}</view>
+      <block wx:if="{{daylongItem.hasEntry == 1}}">
+        <view class="calendar-item"><text class="title">是否报名</text><text class="success">已报名</text></view>
+      </block>
+      <block wx:else>
+        <view class="calendar-item"><text class="title">是否报名</text><text class="not">未报名</text></view>
+      </block>
+      <view class="calendar-item"><text class="title">备注</text>{{daylongItem.remark}}</view>
+    </view>
+    <view class="calendar-btn">
+    <block wx:if="{{daylongItem.time == true}}">
+        <button type="default" size="default">已过期</button>
+    </block>
+    <block wx:elif="{{daylongItem.hasJoinNumber >= daylongItem.joinNumber}}">
+        <button type="default" size="default">人数已满</button>
+    </block>
+      <block wx:else>
+        <button type="primary" size="default" data-pointId="{{daylongItem.pointId}}" bindtap="appointment">{{appointmentText}}</button>
+      </block>
+    </view>
+  </view>

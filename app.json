@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/view/view",
+    "pages/taskview/taskview",
+    "pages/mylist/mylist",
+    "pages/tastentry/tastentry",
+    "pages/questionList/questionList",
+    "pages/questionnaire/questionnaire",
+    "pages/medical/medical",
+    "pages/institution/institution",
+    "pages/calendar/calendar",
+    "pages/feedback/feedback",
+    "pages/account/myCenter/myCenter",
+    "pages/account/userbase/userbase",
+    "pages/account/authentication/authentication",
+    "pages/account/setting/setting",
+    "pages/account/phone/phone",
+    "pages/account/record/record",
+    "pages/account/email/email",
+    "pages/messagelist/messagelist",
+    "pages/messageview/messageview",
+    "pages/evaluatelist/evaluatelist"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor":"#35b9be",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath":"static/images/home.png",
+        "selectedIconPath":"static/images/home2.png"
+      },
+      {
+        "pagePath": "pages/mylist/mylist",
+        "text": "任务",
+        "iconPath": "static/images/task.png",
+        "selectedIconPath": "static/images/task2.png"
+      },
+      {
+        "pagePath": "pages/account/myCenter/myCenter",
+        "text": "我的",
+        "iconPath": "static/images/me.png",
+        "selectedIconPath": "static/images/me2.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

@@ -1,0 +1,125 @@
+.page {
+  background-color: #f2f4f5;
+  font-size: 28rpx;
+  color: #333;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+.fr, .even{
+  float: right;
+}
+.fl, .odd{
+  float: left;
+}
+.clearfix:before,.clearfix:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+.tc{
+  text-align: center;
+}
+.ell{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.cursor {
+  cursor: pointer;
+}
+.none {
+  display: none;
+}
+.wb
+{
+  word-wrap: break-word;
+  word-break:break-all;
+}
+/**/
+.w100 {
+  width: 100%;
+}
+.ml {
+  margin-left: auto;
+}
+.mr {
+  margin-right: auto;
+}
+.mt20 {
+  margin-top: 40rpx;
+}
+.mb20 {
+  margin-bottom: 40rpx;
+}
+.mb30 {
+  margin-bottom: 40rpx;
+}
+.ml20 {
+  margin-left: 40rpx;
+}
+.mr20 {
+  margin-right: 40rpx;
+}
+.mt12 {
+  margin-top: 24rpx;
+}
+.mb12 {
+  margin-bottom: 24rpx;
+}
+.ml12 {
+  margin-left: 24rpx;
+}
+.mr12 {
+  margin-right: 24rpx;
+}
+.pt20 {
+  padding-top: 40rpx;
+}
+.pb20 {
+  padding-bottom: 40rpx;
+}
+.pl20 {
+  padding-left: 40rpx;
+}
+.pr20 {
+  padding-right: 40rpx;
+}
+.pt12 {
+  padding-top: 24rpx;
+}
+.pb12 {
+  padding-bottom: 24rpx;
+}
+.pl12 {
+  padding-left: 24rpx;
+}
+.pr12 {
+  padding-right: 24rpx;
+}
+
+.maincolor {
+  color: #35b9be
+}
+.bgfff {
+  background-color: #fff;
+}
+.bgmaincolor {
+  background-color: #35b9be
+}
+.curMainColor{
+  color: #3bb6bb
+}
+.bgcurMainColor {
+  background-color: #3bb6bb
+}
+.success {
+  color: Green;
+}
+.not,.pending,.c8 {
+  color: #888;
+}
+.cf30, .fail {
+  color: Red;
+}

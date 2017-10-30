@@ -1,0 +1,102 @@
+/* pages/mylist/mylist.wxss */
+@import "../../common/wxss/common.wxss";
+@import "../../common/wxss/tabheader.wxss";
+@import "../../common/wxss/animate.wxss";
+.recruitItem {
+  position: relative;
+  border-bottom: 2rpx #eee solid;
+  border-top: 2rpx #eee solid;
+  padding: 30rpx 20rpx 30rpx 180rpx;
+}
+.recruitItem .orgLogo {
+  width: 146rpx;
+  height: 146rpx;
+  border: 2rpx #eee solid;
+  border-radius: 50%;
+  position: absolute;
+  left: 20rpx;
+  top: 30rpx;
+}
+.recruitItem .task .name {
+  height: 54rpx;
+  line-height: 54rpx;
+  font-size: 32rpx;
+}
+.recruitItem .task .orgName, .recruitItem .task .type {
+  height: 48rpx;
+  line-height: 48rpx;
+}
+.recruitItem .task .type {
+  color: #888;
+}
+
+.recruit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  font-size: 24rpx;
+  padding: 6rpx 8rpx;
+}
+.recruit-no {
+  background-color: #f30;
+}
+.recruit-success {
+  background-color: Green;
+}
+
+.sign, .evaluate, .pay {
+  color: #fff;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  margin-right: 20rpx;
+  display: inline-block;
+}
+.alreadySign, .alreadypay, .alreadEvaluate {
+  background-color: #888;
+}
+.noSign,.noevaluate, .nopay {
+  background-color: #35b9be;
+}
+.auditReason {
+  color: #f30;
+  line-height: 48rpx;
+}
+.evaluate-box {
+  background-color: #fff;
+  position:absolute;
+  width: 100%;
+  overflow-y: scroll;
+  min-height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  font-size: 28rpx;
+}
+.evaluate-box  .box-title {
+  padding: 20rpx 20rpx;
+}
+.evaluate-box .box-main {
+  padding: 0 20rpx;
+}
+.evaluate-box .box-main .post-content {
+  line-height: 48rpx;
+  color: #666;
+  width: 100%;
+}
+.star-box .section__title {
+  font-size: 28rpx;
+  padding: 0 20rpx;
+}
+.post-content {
+  height: 240rpx;
+  line-height: 48rpx;
+}
+.success, .spend, .fail {
+  color: #f30;
+}

@@ -1,0 +1,10 @@
+# Ignore file
+# Ignore Mac OS desktop services store
+.DS_Store
+# Ignore Windows desktop setting file
+desktop.ini
+/tmp
+.idea
+*.sublime-project
+*.sublime-workspace
+*.swp

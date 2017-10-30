@@ -1,0 +1,31 @@
+<!--pages/account/myCenter/myCenter.wxml-->
+<view class="page">
+  <view class="head bgmaincolor mb20">
+    <image class="avatar" mode="aspectFill" src="{{avatarUrl}}"></image>
+    <view class="nickname">{{mycenterView.nickname}}</view>
+      <block wx:if="{{mycenterView.autonymVerified == 1}}">
+        <view class='verified success-verified'>已认证</view>
+      </block>
+      <block wx:else>
+        <view class='verified no-verified'>未认证</view>
+      </block>
+  </view>
+
+  <view class="integrity bgfff mb20">
+    <view class="integrity-title">资料完整度</view>
+    <progress percent="{{mycenterView.integrity}}" percent="{{mycenterView.integrity}}" show-info stroke-width="6" />
+  </view>
+
+  <view class="integral-box bgfff mb20">
+    <navigator class="integral bgmaincolor" url="../record/record?integral={{mycenterView.integral}}" open-type="navigateTo" hover-class="other-navigator-hover">您当前有<text class="nums">{{mycenterView.integral}}</text>个积分</navigator>
+  </view>
+  
+  <view class="mycenter-box bgfff">
+  <navigator class="mycenter-box-item" url="../userbase/userbase" open-type="navigateTo" hover-class="other-navigator-hover"><text class="icon icon-e002"></text><text class="title">个人信息</text></navigator>
+  <navigator class="mycenter-box-item" url="../authentication/authentication" open-type="navigateTo" hover-class="other-navigator-hover"><text class="icon icon-e003"></text><text class="title">实名认证</text></navigator>
+  <navigator class="mycenter-box-item" url="../setting/setting" open-type="navigateTo" hover-class="other-navigator-hover"><text class="icon icon-e005"></text><text class="title">账户设置</text></navigator>
+  <navigator class="mycenter-box-item" url="../record/record?integral={{mycenterView.integral}}" open-type="navigateTo" hover-class="other-navigator-hover"><text class="icon icon-e004"></text><text class="title">统计信息</text></navigator>
+  <navigator class="mycenter-box-item" url="../../messagelist/messagelist" open-type="navigateTo" hover-class="other-navigator-hover"><text class="icon icon-e006"></text><text class="title">我的消息</text><text class="notReadNum {{mycenterView.notReadNum > 0 ? '' : 'none'}}">{{mycenterView.notReadNum}}</text></navigator>
+  <navigator class="mycenter-box-item" url="../../evaluatelist/evaluatelist" open-type="navigateTo" hover-class="other-navigator-hover"><text class="icon icon-e001"></text><text class="title">评价列表</text></navigator>
+  </view>
+</view>

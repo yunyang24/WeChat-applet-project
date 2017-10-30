@@ -1,0 +1,93 @@
+/* pages/messagelist/messagelist.wxss */
+@import "../../common/wxss/common.wxss";
+@import "../../common/wxss/tabheader.wxss";
+.messageItem {
+  padding: 0 20rpx;
+}
+.messageitem-box {
+  height: 160rpx;
+  padding-bottom: 40rpx;
+  padding-left: 220rpx;
+  position: relative;
+}
+.messageitem-box .icon-right-arrow, .messageitem-box .icon-dot, .messageitem-box .time-box,.messageitem-box .triangle-left,.messageitem-box .line {
+  position: absolute;
+}
+.messageitem-box .time-box {
+  left: 0;
+  top: 0;
+  width: 180rpx;
+  line-height: 64rpx;
+  background-color: #35b9be;
+  height: 64rpx;
+  text-align: center;
+  border-radius: 64rpx;
+}
+.messageitem-box .time-box .time {
+  color: #fff;
+}
+.messageitem-box .triangle-left {
+  left: 200rpx;
+  top: 26rpx;
+  width: 0;
+  height: 0;
+  border-top: 10rpx solid transparent;
+  border-right: 20rpx solid #fff;
+  border-bottom: 10rpx solid transparent;
+  z-index: 9;
+}
+.messageitem-box .line {
+  height: 200rpx;
+  left: 89rpx;
+  top: 0;
+  display: block;
+  background-color: #35b9be;
+  width: 2rpx;
+  z-index: 9;
+}
+.messageitem-box .icon-right-arrow {
+  top: 60rpx;
+  right: 20rpx;
+  z-index: 20;
+}
+.messageitem-box .icon-dot {
+  width: 8rpx;
+  height: 8rpx;
+  right: 80rpx;
+  top: 64rpx;
+  border-radius: 50%;
+  background-color: #f30;
+  z-index: 20;
+}
+.messageitem-box .view {
+  display: block;
+  height: 120rpx;
+  padding: 20rpx;
+  box-shadow:0 4rpx 4rpx #eee;
+  color: #fff;
+  background-color: #fff;
+  position: relative;
+  border-radius: 8rpx;
+}
+.messageitem-box .view .siteTitle, .messageitem-box .view .senderName {
+  height: 60rpx;
+  color: #666;
+  line-height: 60rpx;
+}
+
+.messageitem-box.is-read .view {
+  background-color: #fafafa;
+}
+.messageitem-box.is-read .time-box {
+  background-color: #ddd;
+}
+.messageitem-box.is-read .time-box .time {
+  color: #333;
+}
+.messageitem-box.is-read .line {
+   background-color: #ddd;
+} 
+.nodata {
+  padding: 20rpx;
+  min-height: 240rpx;
+}

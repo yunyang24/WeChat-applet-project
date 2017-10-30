@@ -1,0 +1,116 @@
+/* pages/view/view.wxss */
+@import "../../common/wxss/common.wxss";
+@import "../../wxParse/wxParse.wxss";
+.crowdsourcing-view {
+	padding: 40rpx 40rpx 150rpx;
+}
+.crowdsourcing-view .view-head .name {
+	font-size: 36rpx;
+	line-height:  60rpx;
+	height: 60rpx;
+}
+.crowdsourcing-view .view-head .type {
+	line-height: 48rpx;
+	color: #888;
+}
+.crowdsourcing-view .view-head .type .orgName {
+	color: #35b9be;
+	padding-left: 20rpx;
+  display: inline;
+}
+.crowdsourcing-view-box .view-box {
+	padding-bottom: 30rpx;
+}
+.crowdsourcing-view-box .view-box .title {
+	display: block;
+	font-weight: 600;
+	height: 60rpx;
+	color: #666;
+	line-height: 60rpx;
+}
+.crowdsourcing-view-box .view-box .view-box-text,.crowdsourcing-view-box .view-box .view-box-item {
+	color: #888;
+	line-height: 48rpx;
+}
+.crowdsourcing-view-box .view-box .view-box-item .box-item {
+	position: relative;
+}
+.qr_code-box .qr_code{
+	width: 240rpx; 
+	height: 240rpx;
+	display: block;
+	margin: 0 auto 20rpx;
+}
+.qr_code-box .qr_code-title {
+	display: block;
+	font-size: 24rpx;
+	text-align: center;
+	color: #888;
+}
+.has-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 72%;
+  padding: 24rpx 14%;
+  height: 72rpx;
+  background-color: rgba(0,0,0,.3);
+}
+.has-box .has-btn {
+	height: 72rpx;
+	line-height: 72rpx;
+	width: 100%;
+	text-align: center;
+	display: block;
+	border-radius: 10rpx;
+	color: #fff;
+	font-size: 32rpx;
+}
+.entry,.entry-task {
+	background-color: #35b9be;
+}
+.entry .alreadyentry {
+	background-color: #666;
+}
+
+.progress-box {
+  padding: 20rpx 0;
+  border-top: 2rpx #eee solid;
+}
+
+.progress-box .percentageBox {
+  color: #888;
+  height: 72rpx;
+  text-align: center;
+}
+.progress-box .percentageBox .percentage {
+  font-size: 36rpx;
+}
+.progress-box .progress-bar {
+  background-color: #aaa;
+  width: 100%;
+  position: relative;
+  margin-bottom: 20rpx;
+  height: 10rpx;
+  border-radius: 10rpx;
+}
+.progress-box .progress-bar .progress {
+  height: 10rpx;  
+  border-radius: 10rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.progress-box .nextStep {
+  text-align: center;
+  width: 100%;
+  height: 64rpx;
+  line-height: 64rpx;
+  display: block;
+  border-radius: 8rpx;
+  color: #fff;
+}
+.progress-box .disableStep {
+  background-color: #ccc;
+}

@@ -1,0 +1,13 @@
+/* pages/account/setting/setting.wxss */
+@import "../../../common/wxss/common.wxss";
+.setting-item {
+  background-color: #fff;
+  padding: 20rpx;
+  line-height: 64rpx;
+  height: 64rpx;
+  border-bottom: 2rpx #eee solid;
+  position: relative;
+}
+.setting-box-item {
+  display: block;
+}

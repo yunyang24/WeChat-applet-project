@@ -1,0 +1,25 @@
+/* pages/questionnaire/questionnaire.wxss */
+@import "../../common/wxss/common.wxss";
+.questionnaire-box {
+  padding: 20rpx;
+  font-size: 28rpx;
+}
+.question-head {
+  text-align: center;
+  font-size: 32rpx;
+}
+.question-head .currentOrder {
+  color: Green;
+  padding: 0 12rpx;
+  font-size: 48rpx;
+}
+.questionnaire-box .title {
+  font-size: 32rpx;
+  line-height: 72rpx;
+  color: #666;
+}
+.questionnaire-box .choice-box {
+  line-height: 80rpx;
+  color: #888;
+  display: block;
+}

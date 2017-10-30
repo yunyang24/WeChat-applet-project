@@ -1,0 +1,77 @@
+/* pages/account/userbase/userbase.wxss */
+@import "../../../common/wxss/common.wxss";
+.head {
+  padding-top: 40rpx;
+  height: 270rpx;
+  background-color: #fff;
+  text-align: center;
+}
+.head .avatar {
+  width: 168rpx;
+  height: 168rpx;
+  border-radius: 50%;
+}
+.head .note {
+  padding-top: 24rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 28rpx;
+}
+.taskentryBox .section {
+  font-size: 32rpx;
+  color: #666;
+  padding: 12rpx 20rpx;
+  position: relative;
+  background-color: #fff;
+  border-bottom: 2rpx #eee solid;
+}
+.taskentryBox .section .input-text,.taskentryBox .section .radio-list,.taskentryBox .section .alreadyverfiy,.taskentryBox .section .goverfiy {
+  position: absolute;
+  right: 20rpx;
+  top: 24rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+}
+.taskentryBox .section .alreadyverfiy {
+  color: #888;
+}
+.taskentryBox .box-item2 .image-box {
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+.taskentryBox .box-item2 .uploadBtn {
+  display: block;
+  width: 240rpx;
+  margin: 24rpx auto 0;
+}
+.taskentryBox .section .input-text,.taskentryBox .section .radio-list {
+  text-align: right;
+}
+.taskentryBox .box-item {
+  height: 72rpx;
+  line-height: 72rpx;
+}
+.taskentryBox .box-item2 {
+  line-height: 72rpx;
+}
+.taskentryBox .box-item .picker-box {
+  height: 96rpx;
+  line-height: 96rpx;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: right;
+  position: absolute;
+}
+.taskentryBox .box-item .picker-box .picker {
+  padding-right: 20rpx;
+}
+.btn-area {
+  width: 90%;
+  margin: 40rpx auto;
+}
+.red {
+  color: #f30;
+}

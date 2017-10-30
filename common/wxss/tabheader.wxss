@@ -1,0 +1,25 @@
+.tab-header {
+  display: -webkit-flex;
+  display: flex;
+  height: 72rpx;
+}
+.tab-header .tab-header-item {
+  -webkit-flex: 1;
+  flex: 1;
+  line-height: 72rpx;
+  font-size: 32rpx;
+  text-align: center;
+  border-bottom-style: solid;
+  border-bottom-width: 2rpx;
+  border-bottom-color: #ddd;
+  position: relative;
+}
+.tab-header .tab-header-active {
+  border-bottom-color: #2fb8bd;
+  color: #2fb8bd;
+}
+.nodata {
+    padding: 40rpx 30rpx;
+    font-size: 28rpx;
+    color: #888;
+}

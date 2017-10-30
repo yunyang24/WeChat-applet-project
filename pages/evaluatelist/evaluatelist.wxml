@@ -1,0 +1,23 @@
+<!--pages/evaluatelist/evaluatelist.wxml-->
+<block wx:if="{{evaluateList.length > 0}}">
+  <view class="evaluateList page" data-pageIndex="{{pageIndex}}" data-totalPage="{{totalPage}}">
+      <view class="evaluateItem bgfff mb12" wx:for="{{evaluateList}}" wx:for-item="evaluateItem" wx:for-index="idx" wx:key="id">
+        <view class="org-box">
+          <image class="orgLogo" mode="aspectFill" src="{{evaluateItem.orgLogo}}"></image>
+          <text class='orgName'>{{evaluateItem.orgName}}</text>
+        </view>
+        <view class='task-box clearfix'>
+          <text class='fl'>{{evaluateItem.assignmentName}}</text>
+          <text class='fr'>{{evaluateItem.starLevel}}星</text>
+        </view>
+         <view class='type-box c8 clearfix'>
+          <text class='fl'>{{evaluateItem.operatorName}}</text>
+          <text class='fr'>{{evaluateItem.createTime}}</text>
+        </view>
+        <view class='content c8'>{{evaluateItem.evaluateContent}}</view>
+      </view>
+  </view>
+</block>
+<block wx:else>
+  <view class="nodata c8">暂无评论信息</view>
+</block>

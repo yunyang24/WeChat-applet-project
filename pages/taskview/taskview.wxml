@@ -1,0 +1,260 @@
+<!--pages/taskview/taskview.wxml-->
+<view class="page taskview-view">
+  <!--头部  -->
+  <view class="taskview-head mb20" bindtap="viewdetail">
+    <image class="orgLogo" mode="aspectFill" src="{{orgLogo}}"></image>
+    <text class="orgName">{{taskview.orgName}}</text>
+    <view class="clearfix headbottom"><text class="reward fl">任务酬金:{{taskview.reward}}元</text><text class="fr">{{taskview.gmtCreate}}</text></view>
+  </view>
+  <!--基本信息  -->
+  <view class="taskview-info pb12 mb20">
+    <view class="view-title">基本信息</view>
+    <view class="info-box clearfix">
+      <view class="info-box-item {{formSetting.realName == true ? '' : 'none'}}">姓名:{{formMember.realName}}</view>
+      <view class="info-box-item {{formSetting.sex == true ? '' : 'none'}}">性别:{{formMember.realName == 2 ? "女" : "男"}}</view>
+      <view class="info-box-item {{formSetting.age == true ? '' : 'none'}}">年龄:{{formMember.age}}</view>
+      <view class="info-box-item {{formSetting.phone == true ? '' : 'none'}}">电话:{{formMember.phone}}</view>
+      <view class="info-box-item {{formSetting.email == true ? '' : 'none'}}">邮箱:{{formMember.email}}</view>
+      <view class="info-box-item {{formSetting.stature == true ? '' : 'none'}}">身高:{{formMember.stature}}CM</view>
+      <view class="info-box-item {{formSetting.weight == true ? '' : 'none'}}">体重:{{formMember.weight}}KG</view>
+      <view class="info-box-item {{formSetting.bloodType == true ? '' : 'none'}}">血型:{{blood}}</view>
+      <view class="info-box-item {{formSetting.birthDay == true ? '' : 'none'}}">出生日期:{{birthday}}</view>
+      <view class="info-box-item {{formSetting.educationDegree == true ? '' : 'none'}}">文化程度:{{culture}}</view>
+      <view class="info-box-item {{formSetting.maritalStatus == true ? '' : 'none'}}">婚姻情况:{{marital}}</view>
+    </view>
+    <view class="info-box2 {{formSetting.industry == true ? '' : 'none'}}">所在行业:{{industry}}</view>
+    <view class="info-box2 {{formSetting.birthplace == true ? '' : 'none'}}">出生地:{{birthplace}}</view>
+    <view class="info-box2 {{formSetting.address == true ? '' : 'none'}}">详细地址:{{formMember.address}}</view>
+  </view>
+  <!--进度  -->
+  <view class="taskview-progress">
+    <view class="view-title">任务进度</view>
+    <!--待审核  -->
+    <view class="task-progress pending-audit {{taskview.memberStatus ==0 ? '' : 'none'}}">
+      <view class="task-sub-box complete">
+          <view class="task-title">报名时间</view>
+          <view class="task-time">{{taskview.entryTime}}</view>
+          <view class="line"></view>
+          <view class="dot"></view>
+      </view>
+      <view class="task-sub-box complete">
+          <view class="task-title">待审核</view>
+          <view class="task-time"></view>
+          <!-- <view class="line"></view> -->
+          <view class="dot2"></view>
+      </view>
+    </view>
+     <!--审核成功  -->
+    <view class="task-progress success-audit {{taskview.memberStatus ==1 ? '' : 'none'}}">
+      <view class="task-sub-box complete">
+          <view class="task-title">报名时间</view>
+          <view class="task-time">{{taskview.entryTime}}</view>
+          <view class="line"></view>
+          <view class="dot"></view>
+      </view>
+      <view class="task-sub-box complete">
+          <view class="task-title">待审核</view>
+          <view class="task-time">{{taskview.auditTime}}</view>
+          <view class="line"></view>
+          <view class="dot"></view>
+      </view>
+      <view class="task-sub-box complete">
+          <view class="task-title">审核通过</view>
+          <view class="task-time">{{taskview.auditTime}}</view>
+          <view class="line"></view>
+          <view class="dot"></view>
+      </view>
+      <block wx:if="{{taskview.hasCase == true && taskview.caseRequiresOrder == true}}">
+        <block wx:if="{{taskview.hasUploadCase ==1}}">
+          <view class="task-sub-box complete">
+              <view class="task-title">添加病历</view>
+              <view class="task-time">{{taskview.caseUploadTime}}</view>
+              <view class="line"></view>
+              <view class="dot"></view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="task-sub-box complete">
+              <view class="task-title">添加病历</view>
+              <view class="task-time"></view>
+              <view class="line"></view>
+              <view class="dot"></view>
+              <!-- <view class="task-start-btn" bindtap="medical>添加病历</view> -->
+               <navigator class="task-start-btn" url="../medical/medical?assignmentId={{assignmentId}}&flag=preview" open-type="navigateTo" hover-class="other-navigator-hover">添加病历</navigator>
+            </view>
+        </block>
+      </block>
+      <block wx:if="{{taskview.hasQuestionnaireOrder2 == true}}">
+        <block wx:if="{{taskview.hasAnswercard2 ==1}}">
+          <view class="task-sub-box complete">
+            <view class="task-title">调查问卷（审核后）</view>
+            <view class="task-time">{{taskview.answercardTime2}}</view>
+            <view class="line"></view>
+            <view class="dot"></view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="task-sub-box complete">
+            <view class="task-title">调查问卷（审核后）</view>
+            <view class="task-time"></view>
+            <view class="line"></view>
+            <view class="dot"></view>
+            <!-- <view class="task-start-btn" bindtap="questionnaire">调查问卷</view> -->
+            <navigator class="task-start-btn" url="../questionList/questionList?assignmentId={{assignmentId}}&flag=preview&type=2" open-type="navigateTo" hover-class="other-navigator-hover">调查问卷</navigator>
+          </view>
+        </block>
+      </block>
+
+      <block wx:if="{{taskview.hasBespeak ==1}}">
+      <view class="task-sub-box complete">
+          <view class="task-title">预约</view>
+          <view class="task-time">{{taskview.bepeakTime}}</view>
+          <view class="line"></view>
+          <view class="dot"></view>
+      </view>
+      </block>
+      <block wx:else>
+      <view class="task-sub-box complete">
+          <view class="task-title">预约</view>
+          <view class="task-time"></view>
+          <view class="line"></view>
+          <view class="dot"></view>
+          <navigator class="task-start-btn" url="../calendar/calendar?assignmentId={{assignmentId}}&flag=preview" open-type="navigateTo" hover-class="other-navigator-hover">预约</navigator>
+          <!-- <view class="task-start-btn" bindtap="appointment">预约</view> -->
+      </view>
+      </block>
+
+      <block wx:if="{{taskview.hasSign == 1}}">
+        <view class="task-sub-box complete">
+            <view class="task-title">签到</view>
+            <view class="task-time">{{taskview.signTime}}</view>
+            <view class="line"></view>
+            <view class="dot"></view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="task-sub-box">
+            <view class="task-title">签到</view>
+            <view class="task-time"></view>
+            <view class="line"></view>
+            <view class="dot"></view>
+        </view>
+      </block>
+
+      <block wx:if="{{taskview.hasSign == 1}}">
+        <view class="task-sub-box complete">
+            <view class="task-title">被试</view>
+            <view class="task-time">{{taskview.signTime}}</view>
+            <view class="line"></view>
+            <view class="dot"></view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="task-sub-box">
+            <view class="task-title">被试</view>
+            <view class="task-time"></view>
+            <view class="line"></view>
+            <view class="dot"></view>
+        </view>
+      </block>
+
+    <block wx:if="{{taskview.hasQuestionnaireOrder3 == true && taskview.hasSign == 1}}">
+        <block wx:if="{{taskview.hasAnswercard3 ==1}}">
+          <view class="task-sub-box complete">
+            <view class="task-title">调查问卷（被试后）</view>
+            <view class="task-time">{{taskview.answercardTime3}}</view>
+            <view class="line"></view>
+            <view class="dot"></view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="task-sub-box complete">
+            <view class="task-title">调查问卷（被试后）</view>
+            <view class="task-time"></view>
+            <view class="line"></view>
+            <view class="dot"></view>
+            <navigator class="task-start-btn" url="../questionList/questionList?assignmentId={{assignmentId}}&flag=preview&type=3" open-type="navigateTo" hover-class="other-navigator-hover">调查问卷</navigator>
+            <!-- <view class="task-start-btn" bindtap="questionnaire">调查问卷</view> -->
+          </view>
+        </block>
+      </block>
+      
+    <block wx:if="{{taskview.hasSign ==1}}">
+      <block wx:if="{{taskview.confirmPayMember ==1}}">
+          <view class="task-sub-box complete">
+            <view class="task-title">确认报酬</view>
+            <view class="task-time">{{taskview.confirmPayMemberTime}}</view>
+            <view class="line"></view>
+            <view class="dot"></view>
+          </view>
+      </block>
+      <block wx:else>
+          <view class="task-sub-box complete">
+            <view class="task-title">确认报酬</view>
+            <view class="task-time"></view>
+            <view class="line"></view>
+            <view class="dot"></view>
+            <view class="task-start-btn" bindtap="gomylist">确认报酬</view>
+             <!-- <navigator class="task-start-btn" url="../mylist/mylist?flag=preview" open-type="navigateTo" hover-class="other-navigator-hover">确报酬</navigator> -->
+          </view>
+      </block>
+     </block>
+     <block wx:else>
+        <view class="task-sub-box">
+            <view class="task-title">确认报酬</view>
+            <view class="task-time"></view>
+            <view class="line"></view>
+            <view class="dot"></view>
+            <view class="task-btn">确认报酬</view>
+          </view>
+      </block>
+
+    <block wx:if="{{taskview.confirmPayMember ==1}}">
+      <block wx:if="{{taskview.hasEvaluateMember ==1}}">
+          <view class="task-sub-box complete">
+            <view class="task-title">评价</view>
+            <view class="task-time">{{taskview.memberEvaluateTime}}</view>
+            <!-- <view class="line"></view> -->
+            <view class="dot"></view>
+          </view>
+      </block>
+      <block wx:else>
+          <view class="task-sub-box complete">
+            <view class="task-title">评价</view>
+            <view class="task-time"></view>
+            <!-- <view class="line"></view> -->
+            <view class="dot"></view>            
+            <!-- <navigator class="task-start-btn" url="../mylist/mylist?flag=preview" open-type="navigateTo" hover-class="other-navigator-hover">去评价</navigator> -->
+            <view class="task-start-btn" bindtap="gomylist">去评价</view>
+            <!-- <view class="task-start-btn" bindtap="comment">去评价</view> -->
+          </view>
+      </block>
+     </block>
+     <block wx:else>
+        <view class="task-sub-box">
+            <view class="task-title">评价</view>
+            <view class="task-time"></view>
+            <!-- <view class="line"></view> -->
+            <view class="dot"></view>
+            <view class="task-btn">去评价</view>
+          </view>
+      </block>
+    </view>
+     <!--审核失败  -->
+    <view class="task-progress fail-audit {{taskview.memberStatus ==2 ? '' : 'none'}}">
+      <view class="task-sub-box complete">
+          <view class="task-title">报名时间</view>
+          <view class="task-time">{{taskview.entryTime}}</view>
+          <view class="line"></view>
+          <view class="dot"></view>
+      </view>
+      <view class="task-sub-box fail-audit-box complete">
+          <view class="task-title">审核失败</view>
+          <view class="task-time">{{taskview.auditTime}}</view>
+          <!-- <view class="line"></view> -->
+          <view class="dot3"></view>
+          <view class="auditReason">{{taskview.auditReason}}</view>
+      </view>
+    </view>
+  </view>
+</view>

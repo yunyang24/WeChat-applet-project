@@ -1,0 +1,60 @@
+/* pages/account/authentication/authentication.wxss */
+@import "../../../common/wxss/common.wxss";
+@import "../../../common/wxss/animate.wxss";
+.uploadBox {
+  background-color: #fff;
+  position:absolute;
+  width: 100%;
+  overflow-y: scroll;
+  min-height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  font-size: 28rpx;
+}
+.authenticationBox .section, .uploadBox .section {
+  font-size: 32rpx;
+  color: #666;
+  padding: 12rpx 20rpx;
+  position: relative;
+  border-bottom: 2rpx #eee solid;
+}
+.authenticationBox .section .input-text,.authenticationBox .section .rightText,.uploadBox .box-item2 .selImg {
+  position: absolute;
+  right: 20rpx;
+  top: 24rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+}
+.uploadBox .box-item2 .image-box {
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+.uploadBox .box-item2 .uploadBtn {
+  display: block;
+  width: 240rpx;
+  margin: 24rpx auto 0;
+}
+.authenticationBox .section .input-text {
+  text-align: right;
+}
+.authenticationBox .box-item {
+  height: 72rpx;
+  line-height: 72rpx;
+}
+.uploadBox .box-item2 {
+  line-height: 72rpx;
+}
+.btn-area {
+  width: 90%;
+  margin: 40rpx auto;
+}
+.box-title {
+  height: 48rpx;
+  line-height: 48rpx;
+  border-bottom: 2rpx #eee solid;
+  padding: 20rpx 20rpx;
+}

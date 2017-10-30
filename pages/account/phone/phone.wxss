@@ -1,0 +1,43 @@
+/* pages/account/phone/phone.wxss */
+@import "../../../common/wxss/common.wxss";
+.head {
+  padding: 64rpx 0 48rpx;
+  text-align: center;
+}
+.head .title {
+  line-height: 64rpx;
+}
+.head .num {
+  line-height: 64rpx;
+}
+.view-item {
+  height: 64rpx;
+  line-height: 64rpx;
+  border-bottom: 2rpx #eee solid;
+  padding: 20rpx;
+  background-color: #fff;
+  position: relative;
+}
+.input-text {
+  width: 100%;
+}
+.side, .sendvcodeImg {
+  position: absolute;
+  top: 20rpx;
+  width: 40%;
+  text-align: right;
+  line-height: 64rpx;
+}
+.side {
+  right: 20rpx;
+  z-index: 100;
+}
+.sendvcodeImg {
+  right: 120rpx;
+  width: 200rpx;
+  height: 64rpx;
+  z-index: 99;
+}
+.btn-area {
+  margin: 40rpx 20rpx 0
+}

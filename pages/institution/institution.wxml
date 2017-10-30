@@ -1,0 +1,87 @@
+<!--pages/institution/institution.wxml-->
+ <import src="../../wxParse/wxParse.wxml" />  
+<view class="view-head mb20">
+    <image class="orgLogo" mode="aspectFill" src="{{orgLogo}}"></image>
+    <text class="orgName">{{institutionView.orgName}}</text>
+</view>
+<view class="institution-view">
+    <view class="institution-view-item {{institutionView.caseNo == true ? 'none' : ''}}"><text class="title">备案号：</text><text class="caseNo">{{institutionView.caseNo}}</text></view>
+    <view class="institution-view-item {{institutionView.approveNo == true ? 'none' : ''}}"><text class="title">审批号：</text><text class="approveNo">{{institutionView.approveNo}}</text></view>
+    <view class="institution-view-item {{institutionView.areaCode == true ? 'none' : ''}}"><text class="title">地区：</text><text class="areaCode">{{institutionView.areaCode}}</text></view>
+    <view class="institution-view-item {{institutionView.gmtBuilt == true ? 'none' : ''}}"><text class="title">建院年份：</text><text class="gmtBuilt">{{institutionView.gmtBuilt}}</text></view>
+    <view class="institution-view-box {{institutionView.academician == true ? 'none' : ''}}">
+        <text class="title">院士介绍：</text>
+         <!-- <view class="academicianRemark">
+            <template is="wxParse" data="{{wxParseData:academicianRemark.nodes}}"/>
+          </view>
+          <block wx:if="{{institutionView.academician.img.length > 0}}">
+            <image class="academicianImg" src="{{institutionView.academician.img}}"></image>
+          </block> -->
+         <view class="academicianlist" wx:for="{{institutionView.academician}}" wx:for-item="academicianItem" wx:for-index="idx" wx:key="*this">
+              <view class="academicianRemark">
+              {{academicianItem.remark}}
+                <!-- <template is="wxParse" data="{{wxParseData:academicianRemark.nodes}}"/> -->
+              </view>
+              <block wx:if="{{academicianItem.img.length > 0}}">
+                <image class="academicianImg" src="{{academicianItem.img}}"></image>
+              </block>
+        </view> 
+    </view>
+    <view class="institution-view-box {{institutionView.honor == true ? 'none' : ''}}">
+    <text class="title">所获荣誉：</text>
+       <!-- <view class="honorItemRemark">
+        <template is="wxParse" data="{{wxParseData:honorRemark.nodes}}"/>
+      </view>
+      <block wx:if="{{institutionView.honor.img.length > 0}}">
+        <image class="honorItemImg" src="{{institutionView.honor.img}}"></image>
+      </block> -->
+         <view class="honorList" wx:for="{{institutionView.honor}}" wx:for-item="honorItem" wx:for-index="idx" wx:key="*this">
+              <view class="honorItemRemark">
+              {{honorItem.remark}}
+                <!-- <template is="wxParse" data="{{wxParseData:honorRemark.nodes}}"/> -->
+              </view>
+              <block wx:if="{{honorItem.img.length > 0}}">
+                <image class="honorItemImg" src="{{honorItem.img}}"></image>
+              </block>
+        </view> 
+    </view>
+    <view class="institution-view-box {{institutionView.equipment == true ? 'none' : ''}}">
+    <text class="title">先进设备：</text>
+        <!-- <view class="equipmentItemRemark">
+          <template is="wxParse" data="{{wxParseData:equipmentRemark.nodes}}"/>
+        </view>
+        <block wx:if="{{institutionView.equipment.img > 0}}">
+          <image class="equipmentItemImg" src="{{institutionView.equipment.img}}"></image>
+        </block> -->
+         <view class="equipmentList" wx:for="{{institutionView.equipment}}" wx:for-item="equipmentItem" wx:for-index="idx" wx:key="*this">
+              <view class="equipmentItemRemark">
+               {{equipmentItem.remark}}
+               <!-- <template is="wxParse" data="{{wxParseData:equipmentRemark.nodes}}"/> -->
+              </view>
+              <block wx:if="{{equipmentItem.img.length > 0}}">
+                <image class="equipmentItemImg" src="{{equipmentItem.img}}"></image>
+              </block>
+        </view> 
+    </view>
+    <view class="institution-view-item {{institutionView.contactEmail == true ? 'none' : ''}}"><text class="title">联系邮箱：</text><text class="contactEmail">{{institutionView.contactEmail}}</text></view>
+    <view class="institution-view-item {{institutionView.contactPhone == true ? 'none' : ''}}"><text class="title">联系电话：</text><text class="contactPhone">{{institutionView.contactPhone}}</text></view>
+    <view class="institution-view-item {{institutionView.contactFax == true ? 'none' : ''}}"><text class="title">联系传真：</text><text class="contactFax">{{institutionView.contactFax}}</text></view>
+    <view class="institution-view-item {{institutionView.hostOrg == true ? 'none' : ''}}"><text class="title">机构主体名称：</text><text class="hostOrg">{{institutionView.hostOrg}}</text></view>
+    <view class="institution-view-box {{institutionView.introduce == true ? 'none' : ''}}">
+      <text class="title">简介：</text>
+      <view class="introduce"> <template is="wxParse" data="{{wxParseData:introduce.nodes}}"/></view>
+    </view>
+    <view class="institution-view-item {{institutionView.orgAddress == true ? 'none' : ''}}"><text class="title">所在地详细地址：</text><text class="orgAddress ">{{institutionView.orgAddress}}</text></view>
+    <view class="institution-view-item {{institutionView.orgPhone == true ? 'none' : ''}}"><text class="title">机构电话：</text><text class="orgPhone">{{institutionView.orgPhone}}</text></view>
+    <view class="institution-view-item {{institutionView.postcode == true ? 'none' : ''}}"><text class="title">邮政编码：</text><text class="postcode">{{institutionView.postcode}}</text></view>
+    <view class="institution-view-item {{institutionView.qq == true ? 'none' : ''}}"><text class="title">专家QQ ：</text><text class="qq">{{institutionView.qq}}</text></view>
+    <view class="institution-view-item {{institutionView.url == true ? 'none' : ''}}"><text class="title">机构网址：</text><text class="url">{{institutionView.url}}</text></view>
+    <view class="institution-view-item {{institutionView.weibo == true ? 'none' : ''}}"><text class="title">微博：</text><text class="weibo">{{institutionView.weibo}}</text></view>
+    <view class="institution-view-item {{institutionView.weixin == true ? 'none' : ''}}"><text class="title">微信：</text><text class="weixin">{{institutionView.weixin}}</text></view>
+    <view class="institution-view-box {{institutionView.picture == true ? 'none' : ''}}">
+      <text class="title">机构图片：</text>
+			<view class="equipmentList" wx:for="{{institutionView.picture}}" wx:for-item="pictureItem" wx:for-index="idx" wx:key="*this">
+						<image class="pictureItem" mode="aspectFit" style="display: block; margin: 0 auto; max-width: 100%;" src="{{pictureItem}}"></image>
+			</view>
+   </view>
+</view>

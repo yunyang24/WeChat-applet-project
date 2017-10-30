@@ -1,0 +1,31 @@
+/* pages/institution/institution.wxss */
+@import "../../common/wxss/common.wxss";
+@import "../../wxParse/wxParse.wxss";
+.view-head {
+	padding: 20rpx;
+	border-bottom: 2rpx #eee solid;
+	height: 96rpx;
+	line-height: 96rpx;
+	position: relative;
+	padding-left: 120rpx;
+}
+.view-head .orgLogo {
+	position: absolute;
+	left: 20rpx;
+	top: 20rpx;
+	width: 96rpx;
+	height: 96rpx;
+}
+.institution-view {
+	padding: 0 20rpx 20rpx;
+	color: #888;
+	line-height: 48rpx;
+	font-size: 28rpx;
+}
+.institution-view .institution-view-item .title,.institution-view .institution-view-box .title {
+	color: #666;
+	font-weight: 600;
+}
+.institution-view .institution-view-box .title {
+	display: block;
+}

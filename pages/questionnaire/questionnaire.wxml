@@ -1,0 +1,34 @@
+<!--pages/questionnaire/questionnaire.wxml-->
+<view class="questionnaire-box">
+  <view class="question-head mt20 mb20">当前已完成<text class="currentOrder">{{currentOrder}}</text>道题/共有{{totalNums}}题</view>
+  <!-- 单选 多选 -->
+  <view class="choiceQs-box" wx:for="{{choiceQs}}" wx:for-item="choiceItem" wx:for-index="idx" wx:key="id">
+    <block wx:if="{{choiceItem.type == 1}}">
+      <radio-group class="radio-group {{currentOrder + 1 == choiceItem.order ? '' : 'none' }}" data-order="{{choiceItem.order}}" bindchange="radioChange">
+        <view class="title">{{choiceItem.order}}.{{choiceItem.contentQ}}</view>
+        <label class="choice-box radio" wx:for="{{choiceItem.option}}" wx:for-item="choiceOption">
+          <radio value="{{choiceOption.sign}}" />{{choiceOption.contentA}}
+        </label>
+      </radio-group>
+    </block>
+    <block wx:else>
+    <checkbox-group class="checkbox-group {{currentOrder + 1 == choiceItem.order ? '' : 'none' }}" data-order="{{choiceItem.order}}" bindchange="checkboxChange">
+      <view class="title">{{choiceItem.order}}.{{choiceItem.contentQ}}</view>
+      <label class="choice-box checkbox none" wx:for="{{choiceItem.option}}" wx:for-item="choiceOption">
+        <checkbox value="{{choiceOption.sign}}" />{{choiceOption.contentA}}
+      </label>
+    </checkbox-group>
+    </block>
+  </view>
+  <!-- 问答 -->
+  <view class="qaQ-box" wx:for="{{qaQ}}" wx:for-item="qaItem" wx:for-index="idx" wx:key="id">
+    <view class="section {{currentOrder + 1 == qaItem.order ? '' : 'none' }}">
+      <view class="title">{{qaItem.order}}.{{qaItem.content}}</view>
+      <textarea placeholder="你的问答..." maxlength="480rpx" placeholder-style="color:#888;" value="{{answertext}}" auto-focus bindinput="inputText" />
+    </view>
+  </view>
+
+  <button type="primary" class="nextBtn mt20 {{currentOrder == totalNums -1 ? 'none' : '' }}" bindtap="nextBtn">下一题</button>
+  <button type="primary" class="nextEntry mt20 {{currentOrder == totalNums -1 ? '' : 'none' }}" bindtap="nextEntry">报名完成</button>
+
+</view>

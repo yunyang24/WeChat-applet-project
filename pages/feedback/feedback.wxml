@@ -1,0 +1,15 @@
+<!--pages/feedback/feedback.wxml-->
+<view class='feedback-box page'>
+    <view class='feedback-title pt20'>请详细表述您的问题及建议（必填）</view>
+    <input class="input-text" type="number" confirm-type="done" maxlength="12" bindinput="bindtitleInput" value="{{title}}" placeholder="请输入标题" />
+    <textarea class="post-content" bindblur="bindTextAreaBlur" value="{{postcontent}}" auto-focus placeholder="您有任何想法，请大声说出来！" />
+    <view class='star-box mb20'>
+      <view class="section section_gap">
+        <text class="section-title">您对有偿被试招募平台的整体满意度如何？</text>
+        <view class="body-view">
+          <slider bindchange="starchange" min="1" step="1" value="{{star}}" max="10" show-value/>
+        </view>
+      </view>
+     </view> 
+    <button type="primary" size="default" bindtap="sumbitBtn">发表评论</button>
+</view>

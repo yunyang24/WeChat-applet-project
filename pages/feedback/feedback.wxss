@@ -1,0 +1,21 @@
+/* pages/feedback/feedback.wxss */
+@import "../../common/wxss/common.wxss";
+.feedback-box {
+  padding: 0 20rpx;
+  font-size: 28rpx;
+}
+.feedback-title {
+  line-height: 52rpx;
+}
+.input-text {
+  border-bottom: 2rpx #eee solid;
+}
+.post-content,.input-text {
+  color: #666;
+  width: 100%;
+  padding: 20rpx 0;
+  line-height: 48rpx;
+}
+.post-content {
+  height: 240rpx;
+}

@@ -1,0 +1,25 @@
+/* pages/questionList/questionList.wxss */
+@import "../../common/wxss/common.wxss";
+@import "../../common/wxss/tabheader.wxss";
+.questionItem {
+  padding: 16rpx 158rpx 16rpx 20rpx;
+  position: relative;
+  height: 64rpx;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 64rpx;
+}
+.questionItem .btn {
+  position: absolute;
+  top: 16rpx;
+  right: 20rpx;
+  width: 128rpx;
+  height: 64rpx;
+  color: #fff;
+  display: block;
+  text-align: center;
+  border-radius: 8rpx;
+}
+.questionItem .already {
+  background-color: #ddd;
+}

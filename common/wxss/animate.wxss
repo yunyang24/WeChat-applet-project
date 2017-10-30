@@ -1,0 +1,154 @@
+/* 动画
+translate3d(x,y,z)只是规定3D转换的一种形式   x:表示在x轴方向的位移  y:表示在y轴方向的位移  z:表示在z轴方向的位移
+translate(x,y)只是规定3D转换的一种形式   x:表示在x轴方向的位移  y:表示在y轴方向的位移 
+*/
+
+/* 右侧滑入 Start */
+@-webkit-keyframes flipRightIn {
+  from {
+    opacity: 0;
+    -webkit-transfrom:translate(100%, 0);
+    transform:translate(100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transfrom:translate(0, 0);
+    transform:translate(0, 0);
+  }
+}
+@keyframes flipRightIn {
+  from {
+    opacity: 0;
+    -webkit-transfrom:translate(100%, 0);
+    transform:translate(100%, 0);
+  }
+  to {
+    opacity: 1;
+     -webkit-transfrom:translate(0, 0);
+    transform:translate(0, 0);
+  }
+}
+.flipRightIn {
+  -webkit-animation-name: flipRightIn;
+  animation-name: flipRightIn;
+}
+/* 右侧滑入 Start */
+
+
+/* 右侧滑出 Start */
+@-webkit-keyframes flipRightOut {
+  from {
+    opacity: 1;
+    -webkit-transfrom:translate(0, 0);
+    transform:translate(0, 0);
+  }
+  to {
+    opacity: 0;
+     -webkit-transfrom:translate(100%, 0);
+    transform:translate(100%, 0);
+  }
+}
+@keyframes flipRightOut {
+  from {
+    opacity: 1;
+    -webkit-transfrom:translate(0, 0);
+    transform:translate(0, 0);
+  }
+  to {
+    opacity: 0;
+    -webkit-transfrom:translate(100%, 0);
+    transform:translate(100%, 0);
+  }
+}
+.flipRightOut {
+  -webkit-animation-name: flipRightOut;
+  animation-name: flipRightOut;
+}
+/* 右侧滑出 End */
+
+
+/*弹窗动画*/
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform:scale(0.5,0.5);
+    transform:scale(0.5,0.5);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform:scale(none);
+    transform:scale(none);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    -webkit-transform:scale(0.5,0.5);
+    transform:scale(0.5,0.5);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform:scale(none);
+    transform:scale(none);
+  }
+}
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+@-webkit-keyframes fadeIn1 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn1 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fadeIn1 {
+  -webkit-animation-name: fadeIn1;
+  animation-name: fadeIn1;
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+/*弹窗动画 end*/
+
+.animation{
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-duration: 0.8s;
+  -webkit-animation-delay: 0s;
+  animation-timing-function: ease;  
+  animation-fill-mode: both;    
+  animation-duration: 0.8s;
+  animation-delay: 0s;
+}

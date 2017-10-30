@@ -1,0 +1,77 @@
+<!--pages/mylist/mylist.wxml-->
+<view class='page'>
+  <view class="tab-header mb20 bgfff">
+      <view class="tab-header-item {{show == 'success' ? 'tab-header-active' : ''}}" data-status="1" data-type="success" bindtap="changeViewType">审核通过<text class='success'>({{successStatus}})</text></view>
+      <view class="tab-header-item {{show == 'pending' ? 'tab-header-active' : ''}}" data-status="0" data-type="pending" bindtap="changeViewType">待审核<text class='spend'>({{spendStatus}})</text></view>
+      <view class="tab-header-item {{show == 'fail' ? 'tab-header-active' : ''}}" data-status="2" data-type="fail" bindtap="changeViewType">审核拒绝<text class='fail'>({{failStatus}})</text></view>
+  </view>
+
+ <block wx:if="{{recruitlist.length > 0}}">
+    <view class="recruitlist" data-pageIndex="{{pageIndex}}" data-totalPage="{{totalPage}}">
+      <view class="recruitItem bgfff mb20" wx:for="{{recruitlist}}" wx:for-item="recruitItem" wx:for-index="idx" wx:key="id">
+           <navigator class="orgName" url="../institution/institution?orgId={{recruitItem.orgId}}" open-type="navigateTo" hover-class="other-navigator-hover"><image class="orgLogo" mode="aspectFill" src="{{recruitItem.orgLogo}}"></image></navigator>
+           <navigator class="orgName" url="../taskview/taskview?assignmentId={{recruitItem.id}}" open-type="navigateTo" hover-class="other-navigator-hover">
+            <view class='task mb12'>
+                <view class='name ell'>{{recruitItem.name}}</view>
+                <view class='orgName ell'>{{recruitItem.orgName}}</view>
+                <view class='type clearfix'><text class='reward fl'>任务酬金：{{recruitItem.reward}}元</text><text class='gmtCreate fr'>{{recruitItem.gmtCreate}}</text></view>
+            </view>
+           </navigator>
+           <block wx:if="{{recruitItem.status == 1}}">
+              <text class='recruit recruit-no'>未开始</text>
+           </block>
+          <block wx:elif="{{recruitItem.status == 2}}">
+              <text class='recruit bgmaincolor'>进行中</text>
+          </block>
+          <block wx:else>
+              <text class='recruit recruit-success'>已完成</text>
+          </block>
+
+          <block wx:if="{{recruitItem.auditStatus == 1}}">
+            <block wx:if="{{recruitItem.confirmPayMember == 1}}">
+                <text class="none pay alreadypay">已收款</text>
+                <block wx:if="{{recruitItem.hasEvaluateMember == 0}}">
+                    <text class="noevaluate evaluate" bindtap="evaluate" data-id="{{recruitItem.id}}">评价</text>
+                </block>
+                <block wx:elif="{{recruitItem.hasEvaluateMember == 1}}">
+                    <text class="alreadEvaluate evaluate">已评价</text>
+                </block>
+            </block>
+            <block wx:elif="{{recruitItem.confirmPayMember == 0}}">
+                <text class="pay nopay" bindtap="pay" data-id="{{recruitItem.id}}">确认收款</text>
+            </block>
+            <block wx:if="{{recruitItem.signStatus == 2}}">
+                <text class="sign alreadySign">已签到</text>
+            </block>
+           </block>
+          <block wx:elif="{{recruitItem.auditStatus == 2}}">
+              <view class='auditReason'>{{recruitItem.auditReason}}</view>
+          </block>
+
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="nodata c8">暂无任务信息</view>
+  </block>
+</view>
+
+<view class="evaluate-box animation {{evaluateBoxStatus == false ? 'none' : 'flipRightIn'}}">
+  <view class="box-title">
+      <text class="cancel" bindtap="cancel">返回</text>
+  </view>
+  <view class='star-box'>
+    <view class="section section_gap">
+      <text class="section__title">请选择分数</text>
+      <view class="body-view">
+        <slider bindchange="starchange" min="1" step="1" value="{{star}}" max="10" show-value/>
+      </view>
+    </view>
+  </view>
+  <view class='box-main'>
+    <textarea class="post-content" bindblur="bindTextAreaBlur" value="{{postcontent}}" auto-focus placeholder="请输入评论内容" />
+    <button type="primary" size="default" bindtap="sumbitBtn">发表评论</button>
+  </view>
+</view>
+
+

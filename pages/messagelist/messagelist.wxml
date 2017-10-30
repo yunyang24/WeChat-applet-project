@@ -1,0 +1,32 @@
+<!--pages/messagelist/messagelist.wxml-->
+<view class='page'>
+  <view class="tab-header mb20 bgfff">
+      <view class="tab-header-item {{show == 'all' ? 'tab-header-active' : ''}}" data-status="0" data-type="all" bindtap="changeViewType">全部</view>
+      <view class="tab-header-item {{show == 'system' ? 'tab-header-active' : ''}}" data-status="1" data-type="system" bindtap="changeViewType">系统消息</view>
+      <view class="tab-header-item {{show == 'recruit' ? 'tab-header-active' : ''}}" data-status="10" data-type="recruit" bindtap="changeViewType">招募消息</view>
+  </view>
+  <block wx:if="{{messageList.length > 0}}">
+    <view class="messageList" data-pageIndex="{{pageIndex}}" data-totalPage="{{totalPage}}">
+      <view class="messageItem" wx:for="{{messageList}}" wx:for-item="messageItem" wx:for-index="idx" wx:key="id">
+          <view class="messageitem-box {{messageItem.isRead == 1 ? 'is-read' : ''}}">
+            <view class='time-box'>
+              <text class='time'>{{messageItem.sendTime}}</text>
+            </view>
+            <view class="triangle-left"></view>
+            <block wx:if="{{messageList.length-1 != idx}}">
+              <view class="line"></view> 
+            </block>
+            <navigator class="view" url="../messageview/messageview?type={{messageItem.siteType}}&id={{messageItem.id}}" open-type="navigateTo" hover-class="other-navigator-hover">
+              <view class="siteTitle ell">{{messageItem.siteTitle}}</view>
+              <view class="senderName ell">{{messageItem.senderName}}</view>
+            </navigator>
+            <view class="icon-dot {{messageItem.isRead == 1 ? 'none' : ''}}"></view>
+            <view class="icon-right-arrow"></view>
+          </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="nodata c8">暂无站内信信息</view>
+  </block>
+</view>

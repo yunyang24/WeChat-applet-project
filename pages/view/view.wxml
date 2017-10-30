@@ -1,0 +1,137 @@
+<!--pages/view/view.wxml-->
+ <import src="../../wxParse/wxParse.wxml" />
+<view class="page crowdsourcing-view">
+    <view class="view-head mb12">
+        <text class="name">{{recruitView.name}}</text>
+        <view class="type">
+          <text class="gmtCreate">{{recruitView.gmtCreate}}</text>
+           <navigator class="orgName" url="../institution/institution?orgId={{recruitView.orgId}}" open-type="navigateTo" hover-class="other-navigator-hover">{{recruitView.orgName}}</navigator>
+          <!-- <text class="orgName" bindtap="viewInstitution" data-orgId="{{recruitView.orgId}}">{{recruitView.orgName}}</text> -->
+        </view>
+        <image class="orgLogo" mode="aspectFit" style="display: block; margin: 0 auto; max-width: 100%;" src="{{orgLogo}}"></image>
+    </view>
+    <view class="crowdsourcing-view-box">
+        <view class="view-box intro {{recruitView.intro == true ? 'none' : ''}}">
+            <text class="title">任务简介</text>
+						<view class="view-box-text">
+             <template is="wxParse" data="{{wxParseData:intro.nodes}}"/> 
+						 </view>
+             <!-- <text class="intro">{{recruitView.intro}}</text>  -->
+        </view>
+        <view class="view-box process {{recruitView.process == true ? 'none' : ''}}">
+            <text class="title">任务流程</text>
+						<view class="view-box-text">
+            <template is="wxParse" data="{{wxParseData:process.nodes}}"/> 
+						 </view>
+            <!-- <text class="process">{{recruitView.process}}</text> -->
+        </view>
+        <view class="view-box view-box-wage {{(recruitView.reward == true && recruitView.otherIncentives == true) ? 'none' : ''}}">
+            <text class="title">任务报酬</text>
+            <view class="reward {{recruitView.reward == true ? 'none' : ''}}">
+                <text>任务酬金:</text>
+                <text class="reward view-box-text">{{recruitView.reward}}</text>
+            </view>
+            <view class="otherIncentives {{recruitView.otherIncentives == true ? 'none' : ''}}">
+                <text>其他奖励:</text>
+								<view class="view-box-text">
+                <template is="wxParse" data="{{wxParseData:otherIncentives.nodes}}"/> 
+								 </view>
+                <!-- <text class="otherIncentives">{{recruitView.otherIncentives}}</text> -->
+            </view>
+        </view>
+        <view class="view-box requires {{recruitView.requires == true ? 'none' : ''}}">
+            <text class="title">任务要求</text>
+            <view class="requirelist view-box-item" wx:for="{{recruitView.requires}}" wx:for-item="requireItem" wx:for-index="idx" wx:key="*this">
+              <text class="box-item">{{requireItem}}</text>
+            </view>
+        </view>
+        <view class="view-box specialDeclareBox {{recruitView.specialDeclare == true ? 'none' : ''}}">
+            <text class="title">特别说明</text>
+            <text class="specialDeclare view-box-text">{{recruitView.specialDeclare}}</text>
+        </view>
+
+        <view class="view-box view-box-time {{(recruitView.startGMT == true && recruitView.gmtRemarks == true) ? 'none' : ''}}">
+            <text class="title">任务时间</text>
+            <view class="viewGMT {{recruitView.startGMT == true ? 'none' : ''}}">
+                <text class="title">时间</text>
+                <text class="startGMT">{{recruitView.startGMT}}</text> — <text class="endGMT">{{recruitView.endGMT}}</text>
+            </view>
+            <view class="gmtRemarks {{recruitView.gmtRemarks == true ? 'none' : ''}}">
+                <text class="title">时间说明</text>
+                <text class="gmtRemarks view-box-text">{{recruitView.gmtRemarks}}</text>
+            </view>
+        </view>
+        <view class="view-box maxMemberBox {{recruitView.maxMember == true ? 'none' : ''}}">
+            <text class="title">最大人数</text>
+            <text class="maxMember view-box-text">{{recruitView.maxMember}}</text>
+        </view>
+        <!-- <view class="view-box contactsBox {{recruitView.contacts == true ? 'none' : ''}}">
+            <text class="title">联系方式</text>
+             <view class="contactlist" wx:for="{{recruitView.contacts}}" wx:for-item="contactItem" wx:for-index="idx" wx:key="name">
+              <text class="ell">{{contactItem.name}}{{contactItem.phone}}</text>
+            </view>
+        </view> -->
+        <view class="view-box addressBox {{recruitView.address == true ? 'none' : ''}}">
+            <text class="title">联系地址</text>
+            <text class="address view-box-text">{{recruitView.address}}</text>
+            <!-- <div id="map">
+                <img src="<%=baseUrl%>/img/map.png">
+            </div> -->
+        </view>
+        <view class="view-box caseRequiresBox {{recruitView.caseRequires == true ? 'none' : ''}}">
+            <text class="title">病例说明</text>
+            <text class="caseRequires view-box-text">{{recruitView.caseRequires}}</text>
+        </view>
+
+        <!-- <div class="questionnaire mt12 none mb12" id="questionnaire">
+            <span class="sub-btn hasquestionnaire">调查问卷</span>
+        </div>
+        <div class="bingli none mb12" id="bingli">
+            <span class="sub-btn hasbingli">病历</span>
+        </div> -->
+
+        <view class="qr_code-box">
+            <image class="qr_code" mode="aspectFit" src="http://openhxwise.oss-cn-shanghai.aliyuncs.com/static/images/default/qrcode_for_gh_7077f2cd82b9_430.jpg"></image>
+            <text class="qr_code-title">长按二维码,关注有偿招募平台公众号</text>
+        </view>
+    </view>
+
+    <!--任务进度-->
+    <view class="progress-box mt12 {{recruitView.memberStatus == 4 ? '' : 'none'}}">
+        <view class="percentageBox">当前任务报名完成进度：<text class="percentage maincolor">{{recruitView.assignmentProgress}}%</text></view>
+        <progress class="mb20" percent="{{recruitView.assignmentProgress}}" stroke-width="6" />
+        <!-- <view class="progress-bar"><text class="progress bgmaincolor" style="width: {{recruitView.nextCode}}%"></text></view> -->
+        <view wx:if="{{recruitView.nextCode == 1}}">
+           <button bindtap="nextStep" class="nextStep bgcurMainColor" data-nextCode="{{recruitView.nextCode}}">下一步：<text class="nextText">病例上传</text></button>
+         </view>
+        <view wx:elif="{{recruitView.nextCode == 2}}">
+           <button bindtap="nextStep" class="nextStep bgcurMainColor" data-questionId="{{recruitView.questionId}}" data-nextCode="{{recruitView.nextCode}}">下一步：<text class="nextText">问卷填写（审核通过后）</text></button> 
+        </view>
+        <view wx:elif="{{recruitView.nextCode == 3}}">
+           <button bindtap="nextStep" class="nextStep bgcurMainColor" data-nextCode="{{recruitView.nextCode}}">下一步：<text class="nextText">预约</text></button> 
+        </view>
+        <view wx:elif="{{recruitView.nextCode == 4}}">
+           <button class="nextStep disableStep" data-nextCode="{{recruitView.nextCode}}">下一步：<text class="nextText">签到被试</text></button> 
+        </view>
+        <view wx:elif="{{recruitView.nextCode == 5}}">
+           <button bindtap="nextStep" class="nextStep bgcurMainColor" data-questionId="{{recruitView.questionId}}" data-nextCode="{{recruitView.nextCode}}">下一步：<text class="nextText">问卷填写（被试后）</text></button> 
+        </view>
+        <view wx:elif="{{recruitView.nextCode == 6}}">
+           <button bindtap="nextStep" class="nextStep bgcurMainColor" data-nextCode="{{recruitView.nextCode}}">下一步：<text class="nextText">确认收款</text></button> 
+        </view>
+        <view wx:else>
+           <button bindtap="nextStep" class="nextStep bgcurMainColor" data-nextCode="{{recruitView.nextCode}}">下一步：<text class="nextText">评价</text></button>
+        </view>
+    </view> 
+</view>
+
+ <view wx:if="{{recruitView.memberStatus == 3 || recruitView.memberStatus == 4 || recruitView.memberStatus == 5}}">
+	<view class="has-box">
+			<text class="has-btn entry-task" bindtap="entry" data-memberFormSetId="{{recruitView.memberFormSetId || 0}}">查看任务进度</text>
+	</view>
+</view>
+<view wx:else>
+	<view class="has-box">
+			<text class="has-btn entry" bindtap="entry" data-memberFormSetId="{{recruitView.memberFormSetId || 0}}">{{entryStatus}}</text>
+	</view>
+</view>

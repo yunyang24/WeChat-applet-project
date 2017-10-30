@@ -1,0 +1,40 @@
+/* pages/evaluatelist/evaluatelist.wxss */
+@import "../../common/wxss/common.wxss";
+.evaluateItem {
+  padding: 20rpx;
+  border-bottom: 2rpx #eee solid;
+}
+.title {
+  font-size: 36rpx;
+  line-height: 64rpx;
+}
+.type {
+  color: #888;
+  font-size: 28rpx;
+  line-height: 48rpx;
+}
+.nodata {
+  padding: 20rpx;
+  font-size: 28rpx;
+}
+.org-box {
+  height: 72rpx;
+  line-height: 72rpx;
+  padding-left: 92rpx;
+  position: relative;
+}
+.org-box .orgLogo {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.task-box,.type-box {
+  line-height: 64rpx;
+  height: 64rpx;
+}
+.content {
+  line-height: 48rpx;
+}

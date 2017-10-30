@@ -1,0 +1,55 @@
+<!--pages/account/phone/phone.wxml-->
+<view class='page'>
+  <view class='head mb20 bgfff'>
+    <view class='title'>当前手机号码：</view>
+    <block wx:if="{{infoview.verified == 1}}">
+      <view class='num maincolor'>{{infoview.phone}}<text class='success'>（已验证）</text></view>
+    </block>
+    <block wx:else>
+      <block wx:if="{{infoview.phone == ''}}">
+        <view class='num cf30'>您还没设置手机号码，请先绑定手机号码</view>
+      </block>
+      <block wx:else>
+        <view class='num c8'>{{infoview.phone}}<text class='cf30'>（末验证）</text></view>
+      </block>
+    </block>
+  </view>
+
+  <view class='view-box'>
+    <view class='view-item'>
+     <input class="input-text" type="number" bindinput="bindphoneInput" confirm-type="done" maxlength="12" value="{{phone}}" placeholder="请输入您的手机号码" />
+    </view>
+    <view class='view-item'>
+     <input class="input-text" type="number" bindblur="bindblurvcodeImgInput" bindinput="bindvcodeImgInput" confirm-type="done" maxlength="2" value="{{vImgcode}}" placeholder="请输入图片验证码" />
+     <!-- <image class="sendvcodeImg" bindtap='sendvcodeImg' mode="aspectFit" src="https://abwxmpapi.hxwise.com/wechatapi/imgvcode?hxwisecid={{hxwisecid}}&time={{time}}"></image> -->
+     <image class="sendvcodeImg" bindtap='sendvcodeImg' mode="aspectFit" src="{{vcodeImg}}"></image>
+     <text class='side maincolor' bindtap='refresh'>刷新</text>
+     </view>
+     <view class='view-item'>
+     <input class="input-text" type="number" bindblur="bindblurvcodeInput" bindinput="bindvcodeInput" confirm-type="done" maxlength="6" value="{{vcode}}" placeholder="请输入手机验证码" />
+     <view class="side maincolor">
+      <block wx:if="{{secondStatus == true}}">
+          <text>{{second}}</text>
+      </block>
+      <block wx:if="{{sendvcodeStatus == true}}">
+          <text bindtap="sendvcode">{{sendvcode}}</text>
+      </block>        
+     </view>
+    </view>
+  <view class="btn-area">
+  <block wx:if="{{infoview.verified == 1}}">
+    <button type="primary" bindtap="saveBtn" data-type="1">修改手机号</button>
+  </block>
+   <block wx:else>
+    <block wx:if="{{infoview.phone == ''}}">
+      <button type="primary" bindtap="saveBtn" data-type="2">绑定手机号</button>
+    </block>
+    <block wx:else>
+      <button type="primary" bindtap="saveBtn" data-type="2">验证手机号</button>
+    </block>
+   </block>
+  </view>
+  </view>
+</view>
+
+

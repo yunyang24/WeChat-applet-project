@@ -1,0 +1,68 @@
+<!--pages/account/authentication/authentication.wxml-->
+<view class="authenticationBox">
+  <view class="section box-item">
+      <view class="title">证件类型</view>
+      <text class="rightText c8">身份证</text>
+  </view>
+  <view class="section box-item">
+    <view class="title">真实姓名</view>
+    <input class="input-text" type="text" confirm-type="done" maxlength="35" bindinput="bindRealNameInput" value="{{realName}}" placeholder="请输入您的真实姓名" />
+  </view>
+  <view class="section box-item">
+    <view class="title">身份号码</view>
+    <input class="input-text" type="idcard" bindinput="bindRealCardIdInput" confirm-type="done" maxlength="18" value="{{cardId}}" placeholder="请输入您的身份号码" />
+  </view>
+  <view class="section box-item">
+      <view class="title">身份证正反面上传（选填）</view>
+      <block wx:if="{{autonymVerified == 1}}">
+        <text class="rightText cf30" bindtap="uploadcard">已完成认证</text>
+      </block>
+      <block wx:else>
+        <text class="rightText maincolor" bindtap="uploadcard">上传证件图片</text>
+      </block>
+  </view>
+  <view class="btn-area">
+    <button type="primary" bindtap="saveUserBaseBtn">保存</button>
+  </view>
+</view>
+
+<view class="uploadBox animation {{uploadBoxStatus == false ? 'none' : 'flipRightIn'}}">
+  <view class="box-title">
+        <text class="cancel" bindtap="cancel">返回</text>
+    </view>
+  <view class="section box-item2">
+    <view class="title">身份证正面</view>
+    <block wx:if="{{cardIdStatus == true}}">
+      <image class="image-box" src="{{cardIdFace}}" data-type="cardIdFace" style="max-height: 360rpx;" mode="aspectFit"></image>
+    </block>
+    <block wx:else>
+      <view class="selImg" data-type="cardIdFace" bindtap="chooseImage">选择图片</view>
+      <block wx:if="{{cardIdFaceStatus == true}}">
+        <image class="image-box" src="{{cardIdFace}}" data-type="cardIdFace" style="max-height: 360rpx;" mode="aspectFit" bindtap="previewImage"></image>
+        <block wx:if="{{uploadcardIdFace == true}}">
+          <button size="mini" type="primary" data-source="{{cardIdFace}}" data-type="cardIdFace" class="uploadBtn cardIdFace" bindtap="uploadImg">点击上传</button>
+        </block>
+      </block>
+    </block>
+  </view>
+  <view class="section box-item2">
+    <view class="title">身份证反面</view>
+    <block wx:if="{{cardIdStatus == true}}">
+      <image class="image-box" src="{{cardIdIcon}}" data-type="cardIdIcon" style="max-height: 360rpx;" mode="aspectFit"></image>
+    </block>
+    <block wx:else>
+      <view class="selImg" data-type="cardIdIcon" bindtap="chooseImage">选择图片</view>
+      <block wx:if="{{cardIdIconStatus == true}}">
+        <image class="image-box" src="{{cardIdIcon}}" data-type="cardIdIcon" style="max-height: 360rpx;" mode="aspectFit" bindtap="previewImage"></image>
+        <block wx:if="{{uploadcardIdIcon == true}}">
+          <button size="mini" type="primary" data-source="{{cardIdIcon}}" data-type="cardIdIcon" class="uploadBtn cardIdIcon" bindtap="uploadImg">点击上传</button>
+        </block>
+      </block>
+    </block>
+  </view>
+<block wx:if="{{cardIdStatus == false}}">
+  <view class="btn-area">
+    <button type="primary" bindtap="sumbitUploadBtn">保存</button>
+  </view>
+ </block>
+ </view>

@@ -1,0 +1,18 @@
+/* pages/messageview/messageview.wxss */
+@import "../../common/wxss/common.wxss";
+.massageview {
+  padding: 20rpx;
+}
+.siteTitle {
+  font-size: 32rpx;
+  text-align: center;
+  padding-bottom: 20rpx;
+  line-height: 64rpx;
+}
+.siteContents,.senderName, .sendTime {
+  line-height: 48rpx;
+  font-size: 28rpx;
+}
+.senderName, .sendTime {
+  text-align: right;
+}

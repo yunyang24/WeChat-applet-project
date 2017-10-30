@@ -1,0 +1,50 @@
+/* pages/medical/medical.wxss */
+@import "../../common/wxss/common.wxss";
+@import "../../common/wxss/animate.wxss";
+.medical-box {
+  margin: 0 20rpx 20rpx;
+}
+ .medical-img {
+  width: 750rpx;
+  height: 375rpx;
+} 
+.medical-title {
+  padding: 12rpx 0 20rpx;
+  text-align: center;
+  color: #666;
+  display: block;
+  word-break:break-all;
+  word-wrap: break-word;
+}
+.addmedical {
+  text-align: center;
+}
+
+.medical-pop-box {
+  background-color: #fff;
+  position:absolute;
+  width: 100%;
+  overflow-y: scroll;
+  min-height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  font-size: 28rpx;
+}
+.medical-pop-box .box-title {
+  padding: 20rpx 20rpx;
+}
+
+.medical-pop-box .box-main {
+  padding: 0 20rpx;
+}
+.medical-pop-box .box-main .post-content {
+  line-height: 48rpx;
+  color: #666;
+  width: 100%;
+}
+.medical-pop-box .box-main .upload {
+  border-top: 2rpx #eee solid;
+}

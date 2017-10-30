@@ -1,0 +1,30 @@
+/* pages/account/record/record.wxss */
+@import "../../../common/wxss/common.wxss";
+.head {
+  padding: 48rpx 0;
+  text-align: center;
+  color: #fff;
+}
+.head .integral {
+  font-size: 48rpx;
+}
+.head .available {
+  font-size: 28rpx;
+}
+.recordItem {
+  padding: 20rpx;
+  border-bottom: 2rpx #eee solid;
+}
+.title {
+  font-size: 32rpx;
+  line-height: 64rpx;
+}
+.type {
+  color: #888;
+  font-size: 28rpx;
+  line-height: 48rpx;
+}
+.nodata {
+  padding: 20rpx;
+  font-size: 28rpx;
+}

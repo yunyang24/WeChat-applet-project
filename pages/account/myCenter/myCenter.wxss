@@ -1,0 +1,89 @@
+/* pages/account/myCenter/myCenter.wxss */
+@import "../../../common/wxss/common.wxss";
+@import "../../../data/fonts/fonts.wxss";
+.head {
+  padding-top: 40rpx;
+  height: 350rpx;
+  text-align: center;
+}
+.head .avatar {
+  width: 168rpx;
+  height: 168rpx;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.head .nickname {
+  padding-top: 12rpx;
+  padding-bottom: 12rpx;
+  line-height: 48rpx;
+  color: #fff;
+}
+.integrity {
+  padding: 40rpx 20rpx;
+  text-align: center;
+}
+.integrity-title {
+  line-height: 64rpx;
+  font-size: 36rpx;
+}
+.integral-box {
+  padding: 40rpx 20rpx;
+}
+.integral-box .integral {
+  text-align: center;
+  display: block;
+  color: #fff;
+  border-radius: 8rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+}
+.integral-box .integral .nums {
+  font-size: 36rpx;
+  color: #f5f20d;
+  padding: 0 8rpx;
+}
+.mycenter-box {
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  color: #666;
+  -webkit-flex-wrap: wrap;
+}
+.mycenter-box .mycenter-box-item {
+  text-align: center;
+  padding: 20rpx 0;
+  position: relative;
+  width: 25%;
+}
+.notReadNum {
+  position: absolute;
+  top: 0;
+  right: 20rpx;
+  background-color: #f30;
+  color: #fff;
+  text-align: center;
+  width: 36rpx;
+  height: 36rpx;
+  font-size: 24rpx;
+  border-radius: 50%;
+  line-height: 36rpx;
+}
+.verified {
+  width: 240rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  border-radius: 64rpx;
+  text-align: center;
+  margin: 0 auto;
+}
+.success-verified {
+  color: #fff;
+  background-color: #e09a00;
+}
+.no-verified {
+  background-color: #888;
+}
+.icon {
+  font-size: 64rpx;
+  display: block;
+}

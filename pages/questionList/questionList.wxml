@@ -1,0 +1,20 @@
+<!--pages/questionList/questionList.wxml-->
+<view class="tab-header">
+    <view class="tab-header-item {{show == 'front' ? 'tab-header-active' : ''}}" data-status="1" data-type="front" bindtap="changeViewType">审核前</view>
+    <view class="tab-header-item {{show == 'middle' ? 'tab-header-active' : ''}}" data-status="2" data-type="middle" bindtap="changeViewType">审核后被试前</view>
+    <view class="tab-header-item {{show == 'behind' ? 'tab-header-active' : ''}}" data-status="3" data-type="behind" bindtap="changeViewType">被试后</view>
+</view>
+<block wx:if="{{questionList.length > 0}}">
+<view class="questionItem ell" wx:for="{{questionList}}" wx:for-item="questionItem" wx:for-index="idx" wx:key="id">
+  {{questionItem.title}}
+  <block wx:if="{{questionItem.currentStatus == 2}}">
+    <text class="btn already">已完成</text>
+  </block>
+  <block wx:else>
+    <navigator class="btn bgmaincolor" url="../questionnaire/questionnaire?assignmentId={{questionItem.assignmentId}}&questionId={{questionItem.id}}&flag=preview" open-type="navigateTo" hover-class="other-navigator-hover">添加病历</navigator>
+  </block>
+</view>
+</block>
+<block wx:else>
+  <!-- <view class="nodata">暂无问卷信息</view> -->
+</block>

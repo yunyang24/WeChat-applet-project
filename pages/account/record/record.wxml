@@ -1,0 +1,16 @@
+<!--pages/account/record/record.wxml-->
+<view class="head bgmaincolor">
+  <view class="integral">{{integral}}</view>
+  <view class="available">可用积分</view>
+</view>
+<block wx:if="{{recordList.length > 0}}">
+  <view class="recordList" data-pageIndex="{{pageIndex}}" data-totalPage="{{totalPage}}">
+      <view class="recordItem mb12" wx:for="{{recordList}}" wx:for-item="recordItem" wx:for-index="idx" wx:key="id">
+          <view class="title ell">{{recordItem.doThing}}</view>
+          <view class="type clearfix"><text class='fl'>{{recordItem.createTime}}</text><text class='fr'>{{recordItem.changeIntegral}}</text></view>
+      </view>
+  </view>
+</block>
+<block wx:else>
+  <view class="nodata c8">暂无积分信息</view>
+</block>

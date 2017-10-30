@@ -1,0 +1,36 @@
+<!--pages/account/setting/setting.wxml-->
+<view class="page setting">
+  <view class="setting-item">
+    <navigator class="setting-box-item" url="../phone/phone" open-type="navigateTo" hover-class="other-navigator-hover">手机号码
+      <block wx:if="{{setting.phoneVerified ==1}}">
+        <text class="success">（已验证）</text>
+      </block>
+      <block wx:else>
+        <text class="cf30">（未验证）</text>
+      </block>
+    </navigator>
+  </view>
+  <view class="setting-item">
+    <navigator class="setting-box-item" url="../email/email" open-type="navigateTo" hover-class="other-navigator-hover">邮箱地址
+      <block wx:if="{{setting.emailVerified ==1}}">
+        <text class="success">（已验证）</text>
+      </block>
+      <block wx:else>
+        <text class="cf30">（未验证）</text>
+      </block>
+    </navigator>
+  </view>
+  <view class="setting-item mb20">
+    <navigator class="setting-box-item" url="../authentication/authentication" open-type="navigateTo" hover-class="other-navigator-hover">实名认证
+      <block wx:if="{{setting.autonymVerified ==1}}">
+        <text class="success">（已验证）</text>
+      </block>
+      <block wx:else>
+        <text class="cf30">（未验证）</text>
+      </block>
+    </navigator>
+  </view>
+  <view class="setting-item">
+    <navigator class="setting-box-item" url="../../feedback/feedback" open-type="navigateTo" hover-class="other-navigator-hover">用户反馈</navigator>
+  </view>
+</view>

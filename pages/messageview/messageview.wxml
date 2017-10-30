@@ -1,0 +1,7 @@
+<!--pages/messageview/messageview.wxml-->
+<view class='massageview'>
+  <view class='siteTitle'>{{messageView.siteTitle}}</view>
+  <view class='siteContents c8'>{{messageView.siteContents}}</view>
+  <view class='senderName c8'>{{messageView.senderName}}</view>
+  <view class='sendTime c8'>{{messageView.sendTime}}</view>
+</view>

@@ -1,0 +1,130 @@
+<!--pages/account/userbase/userbase.wxml-->
+<view class="taskentryBox page">
+  <view class="head mb20">
+    <image class="avatar" mode="aspectFill" src="{{avatarUrl}}" data-url="{{avatarUrl}}" bindtap="previewImage"></image>
+    <view class="note red" bindtap="chooseImage">点击上传你的个人头像（最大2M）</view>
+  </view>
+
+  <view class="section box-item">
+    <view class="title">真实姓名（<text class="red">必填</text>）</view>
+    <input class="input-text" type="text" confirm-type="done" maxlength="35" bindinput="bindRealNameInput" value="{{realName}}" placeholder="请输入您的真实姓名" />
+  </view>
+<view class="section box-item">
+    <view class="title">性别（<text class="red">必填</text>）</view>
+    <radio-group class="gender-radio radio-list" bindchange="sexChange">
+      <block wx:if="{{sex == 2}}">
+        <label><radio data-type="1" name="sex" value="1"/>男</label>
+        <label><radio data-type="2" name="sex" checked="true" value="2"/>女</label>
+      </block>
+      <block wx:else>
+        <label><radio data-type="1" name="sex" checked="true" value="1"/>男</label>
+        <label><radio data-type="2" name="sex" value="2"/>女</label>
+      </block>
+    </radio-group>
+  </view>
+  <view class="section box-item">
+    <view class="title">出生日期（<text class="red">必填</text>）</view>
+     <picker mode="date" class="picker-box" name="birthday" value="{{birthday}}" bindchange="bindDateChange">
+        <view class="picker">{{birthday}}</view>
+         <!-- <block wx:if="{{birthdayStatus == true}}">
+          <view class="picker">{{date}}</view>
+        </block>
+        <block wx:else>
+          <view class="picker">{{birthday}}</view>
+        </block> -->
+     </picker>
+  </view>
+  <view class="section box-item">
+    <view class="title">手机号码</view>
+    <block wx:if="{{phoneVerified == 1}}">
+      <text class="alreadyverfiy">已验证</text>
+    </block>
+    <block wx:else>
+      <navigator class="goverfiy maincolor" url="../phone/phone?type=1" open-type="navigateTo" hover-class="other-navigator-hover"><text class="title">去验证手机号</text></navigator>
+    </block>
+    <!-- <input class="input-text" type="number" confirm-type="done" maxlength="12" bindinput="bindRealPhoneInput" value="{{phone}}" placeholder="请输入您的手机号码" /> -->
+  </view>
+  <view class="section box-item">
+    <view class="title">昵称</view>
+    <input class="input-text"  type="text" confirm-type="done" maxlength="35" bindinput="bindRealNicknameInput" value="{{nickname}}" placeholder="请输入您的昵称" />
+  </view>
+  <view class="section box-item">
+    <view class="title">身高(CM)</view>
+    <input class="input-text" type="number" bindinput="bindRealStatureInput" confirm-type="done" maxlength="12" value="{{stature > 0 ? stature : ''}}" placeholder="请输入您的身高(CM)" />
+  </view>
+  <view class="section box-item">
+    <view class="title">体重(KG)</view>
+    <input class="input-text" type="number" bindinput="bindRealWeightInput" confirm-type="done" maxlength="12" value="{{weight >0 ? weight : ''}}" placeholder="请输入您的体重(KG)" />
+  </view>
+  <view class="section box-item">
+    <view class="title">年龄</view>
+    <input class="input-text" bindinput="bindRealAgeInput" type="number" disabled="true" confirm-type="done" maxlength="12" value="{{age}}" placeholder="请输入您的年龄" />
+  </view>
+   <view class="section box-item"> 
+    <view class="title">血型</view>
+    <picker class="picker-box" bindchange="bindBloodChange" value="{{bloodIndex}}" range="{{bloodArray}}">
+      <view class="picker">{{bloodStatus == true ? bloodArray[bloodIndex] : bloodArray[bloodType]}}</view>  
+     </picker>
+  </view>
+  <view class="section box-item {{bloodType == 5  ? '' : 'none'}}">
+    <view class="title">其它血型</view>
+    <input class="input-text" bindchange="bindotherBloodChange" type="text" confirm-type="done" maxlength="12" value="" placeholder="请输入其它血型" />
+  </view>
+   <view class="section box-item"> 
+    <view class="title">出生地</view>
+    <picker mode="region" class="picker-box" value="{{region}}" bindchange="bindRegionChange">
+    <!-- <block wx:if="regionStatus == true">
+      <view class="picker">{{region[0]}}{{region[1]}}{{region[2]}}</view> 
+    </block>
+    <block wx:else>
+      <view class="picker">{{birthplaceText}}</view> 
+    </block> -->
+    <view class="picker">{{region[0]}}|{{region[1]}}|{{region[2]}}</view> 
+    </picker>
+  </view>
+  <view class="section box-item"> 
+    <view class="title">居住地</view>
+    <picker mode="region" class="picker-box" value="{{area}}" bindchange="bindareaChange">
+    <!-- <block wx:if="areaStatus == true">
+      <view class="picker">{{area[0]}}{{area[1]}}{{area[2]}}</view> 
+    </block>
+    <block wx:else>
+      <view class="picker">{{contactText}}</view> 
+    </block> -->
+    <view class="picker">{{area[0]}}|{{area[1]}}|{{area[2]}}</view> 
+    </picker>
+  </view>
+  <view class="section box-item">
+    <view class="title">详细地址</view>
+    <input class="input-text" type="text" confirm-type="done" maxlength="35" bindinput="bindRealAddressInput" value="{{address}}" placeholder="请输入您的详细地址" />
+  </view>
+   <view class="section box-item"> 
+    <view class="title">文化程序</view>
+    <picker class="picker-box" bindchange="bindCultureChange" value="{{cultureIndex}}" range="{{cultureArray}}">
+        <view class="picker">{{cultureStatus == true ? cultureArray[cultureIndex] : cultureArray[educationDegree]}}</view>  
+     </picker>
+  </view>
+  <view class="section box-item {{educationDegree == 9 ? '' : 'none'}}">
+    <view class="title">其它学历</view>
+    <input class="input-text" bindchange="bindotherCultureChange" type="text" confirm-type="done" maxlength="12" value="" placeholder="请输入其它学历" />
+  </view>
+   <view class="section box-item"> 
+    <view class="title">所在行业</view> 
+    <picker class="picker-box" bindchange="bindIndustryChange" name="industry" value="{{industryIndex}}" range="{{industryArray}}">
+      <view class="picker">{{industryStatus == true ? industryArray[industryIndex] : industryArray[industry]}}</view>  
+    </picker>
+  </view>
+   <view class="section box-item {{industry == 46 ? '' : 'none'}}">
+    <view class="title">其它行业</view>
+    <input class="input-text" bindchange="bindotherIndustryChange" type="text" confirm-type="done" maxlength="12" value="" placeholder="请输入其它行业" />
+  </view>
+   <view class="section box-item"> 
+    <view class="title">婚姻情况</view>
+    <picker class="picker-box" bindchange="bindMarriageChange" name="maritalStatus" value="{{marriageIndex}}" range="{{marriageArray}}">
+    <view class="picker">{{marriageStatus == true ? marriageArray[marriageIndex] : marriageArray[maritalStatus]}}</view> 
+    </picker>
+  </view>
+  <view class="btn-area">
+    <button type="primary" bindtap="nextEntry">保存</button>
+  </view>
+</view>

@@ -1,0 +1,83 @@
+/**index.wxss**/
+@import "../../common/wxss/common.wxss";
+@import "../../common/wxss/tabheader.wxss";
+/* .userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+} */
+
+.crowdsourcingItem .org-box {
+  height: 128rpx;
+  padding: 40rpx 30rpx 40rpx 160rpx;
+  position: relative;
+}
+.crowdsourcingItem .org-box .orgLogo {
+  width: 128rpx;
+  height: 128rpx;
+  position: absolute;
+  left: 30rpx;
+  top: 40rpx;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.crowdsourcingItem .org-box .orgName,.crowdsourcingItem .org-box .recruit-time {
+  height: 64rpx;
+  line-height: 64rpx;
+  display: block;
+}
+.crowdsourcingItem .org-box .orgName {
+ font-size: 32rpx;
+  color: #333;
+}
+.crowdsourcingItem .org-box .recruit-time {
+  font-size: 28rpx;
+  color: #888;
+}
+.crowdsourcingItem .recruit-box {
+  height: 300rpx;
+  position: relative;
+}
+.crowdsourcingItem .recruit-box .logo {
+  height: 240rpx;
+  width: 100%;
+  -webkit-background-size:contain;
+  background-size:contain;
+}
+.crowdsourcingItem .recruit-box .type {
+  position: absolute;
+  bottom: 60rpx;
+  left: 0;
+  right: 0;
+  padding: 10rpx 20rpx;
+  background-color: rgba(0, 0, 0, .4);
+  color: #fff;
+  font-size: 28rpx;
+}
+.crowdsourcingItem .recruit-box .type .signMember, .crowdsourcingItem .recruit-box .type .reward {
+  color: #fccf58;
+}
+.crowdsourcingItem .recruit-box .name {
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #333;
+  padding: 0 20rpx;
+  font-size: 32rpx;
+}

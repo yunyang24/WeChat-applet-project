@@ -1,0 +1,140 @@
+/* pages/taskview/taskview.wxss */
+@import "../../common/wxss/common.wxss";
+.taskview-head {
+  height: 128rpx;
+  padding: 30rpx 20rpx 30rpx 178rpx;
+  position: relative;
+  background-color: #fff;
+}
+.taskview-head .orgLogo {
+  width: 128rpx;
+  height: 128rpx;
+  position: absolute;
+  left: 20rpx;
+  top: 30rpx;
+  border-radius: 50%;
+}
+.taskview-head .orgName {
+  font-size: 32rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+}
+.taskview-head .headbottom {
+  line-height: 64rpx;
+  color: #888;
+}
+.view-title {
+  padding: 0 20rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  font-weight: 600;
+  border-bottom: 2rpx #eee solid;
+}
+.taskview-info {
+  background-color: #fff;
+}
+.taskview-info .info-box {
+  margin: 20rpx 20rpx 0;
+}
+.taskview-info .info-box .info-box-item {
+  float: left;
+  line-height: 60rpx;
+  width: 50%;
+}
+.taskview-info .info-box2 {
+  line-height: 60rpx;
+  padding: 0 20rpx;
+}
+.taskview-progress{
+  background-color: #fff;
+}
+
+.task-progress {
+  padding-bottom: 36rpx;
+}
+.task-sub-box {
+  margin-top: 30rpx;
+  padding: 0 20rpx 0 100rpx;
+  position: relative;
+  color: #888;
+}
+.task-sub-box .task-title {
+  height: 60rpx;
+  font-size: 32rpx;
+}
+.task-sub-box .task-time {
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.line,.dot,.dot2,.dot3 {
+  position: absolute;
+  background-color: #dddddd;
+}
+.line {
+  width: 4rpx;
+  left: 50rpx;
+  height: 140rpx;
+  top: 6rpx;
+  z-index: 2;
+}
+.dot,.dot2,.dot3 {
+  top: 6rpx;
+  z-index: 9;
+  width: 24rpx;
+  height: 24rpx;
+  left: 40rpx;
+  background-color: #dddddd;
+  border-radius: 50%;
+}
+.auditReason {
+  line-height: 48rpx;
+  color: #888;
+}
+.complete {
+  color: #35b9be;
+}
+.complete .line,.complete.dot {
+  background-color: #35b9be;
+}
+.complete.line,.complete.dot {
+  background-color: #35b9be;
+}
+.complete .dot {
+  background-color: #35b9be;
+}
+.complete .dot2,.complete .dot3 {
+  left: 26rpx;
+  width: 32rpx;
+  top: -4rpx;
+  height: 32rpx;
+}
+.complete .dot2{
+  border: 6rpx #89d6d9 solid;
+  background-color: #35b9be;
+}
+.complete .dot3{
+  border: 6rpx #ed8680 solid;
+  background-color: #e02e24;
+}
+.task-btn,.task-start-btn {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  width: 180rpx;
+  height: 64rpx;
+  font-size: 32rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 8rpx;
+}
+.task-btn {
+  pointer-events: none;
+  background-color: #ddd;
+}
+.task-start-btn {
+  background-color: #35b9be;
+}
+.fail-audit-box .task-title, .fail-audit-box .task-time {
+  color: #e02e24;
+}
